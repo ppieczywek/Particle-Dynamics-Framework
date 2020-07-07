@@ -1,0 +1,35 @@
+model			WATER_BIG_BOX.txt
+output     		WATER_BIG_BOX_calibration_out
+
+output_freq		200
+minimize		2000
+run			20000
+
+export 			type	W
+
+sigma		        6.86  
+gamma		        23.5298
+
+//sigma		        8.9  
+//gamma		        39.605
+
+lambda			0.5
+
+cutoff			7.2 
+
+box 			72.00	72.00	72.00
+
+type			W	1.0
+type			GALUD	2.609
+type			GALUN	2.623
+
+pair			W	W       50.0    7.2
+pair			W	GALUD	75.0	7.2
+pair			W	GALUN	67.0	7.2
+
+pair			GALUN	GALUN	58.50	7.2
+pair			GALUD	GALUD	100.00	7.2
+pair			GALUD	GALUN	65.00	7.2
+
+
+step			0.001
