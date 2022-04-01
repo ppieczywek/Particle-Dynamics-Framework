@@ -405,7 +405,7 @@ void kernel FillGrid(global _Bead* bead_buffer,  global int* grid_head, global _
             cellY >= 0 && cellY < settings.gridCellsY &&
             cellZ >= 0 && cellZ < settings.gridCellsZ)
         {
-            int cell_id = cellX + cellY*settings.gridCellsY + cellZ*settings.gridCellsXY;
+            int cell_id = cellX + cellY*settings.gridCellsX + cellZ*settings.gridCellsXY;
             //test if cell_id < grid_size
             int old = atomic_add(&(grid_head[cell_id]), 1);
             if(old < GRID_TAIL_SIZE) grid_tail[cell_id].n[old] = bead_id;
