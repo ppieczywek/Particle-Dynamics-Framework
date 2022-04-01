@@ -363,7 +363,7 @@ pair        GALUD	GALUN	65.00	7.2
 step        0.001
 ```
 
-### 4. Simulation output files
+### 3. Simulation output files
 
 Currently simulation software exports all data into *.XYZ file format. The XYZ file format is a chemical file format. XYZ format specifies the molecule geometry by giving the number of atoms with Cartesian coordinates that will be read on the first line, a comment on the second, and the lines of atomic coordinates in the following lines.[1] The file format is used in computational chemistry programs for importing and exporting geometries.
 
