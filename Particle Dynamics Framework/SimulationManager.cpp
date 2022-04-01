@@ -70,7 +70,7 @@ bool SimulationManager::Run()
 		
 		if (minimalization_steps > 0)
 		{
-			std::cout << "\tInitializing system energy minimalization." << std::endl; //zmieniæ to --
+			std::cout << "\tInitializing system energy minimalization." << std::endl; //zmieniÃ¦ to --
 			if (!MinimizeSystemEnergy(minimalization_steps))
 			{
 				std::cout << "Error: An error occured during system energy minimalization." << std::endl;
@@ -97,7 +97,7 @@ bool SimulationManager::Run()
 		}
 		std::cout << "Simulation progress: 100.0%" << std::endl;
 
-		DumpRestartData(); //dopracowaæ to
+		DumpRestartData(); //dopracowaÃ¦ to
 
 		double elapsed_seconds = timer.Stop();
 		double elapsed_minutes = std::floor((elapsed_seconds / 60.0));
@@ -947,7 +947,7 @@ bool  SimulationManager::ReadBeadsData(std::vector<std::string>&	file_contents)
 	{
 		if (tokens[0] == "BEAD")
 		{
-			if (tokens.size() == 5 || tokens.size() == 8) //iloœæ pól
+			if (tokens.size() == 5 || tokens.size() == 8) //iloÂœÃ¦ pÃ³l
 			{
 				BeadInfo		bead_info;
 				Bead			bead;
@@ -1516,7 +1516,7 @@ bool	SimulationManager::DumpRestartData()
 
 	dump_file << bead_data.size() << std::endl;
 	dump_file << "FRAME" << std::endl;
-	for (auto ii = 0; ii < beads_num; ii++) /// tyle ile rzeczywiœcie jest cz¹stek
+	for (auto ii = 0; ii < beads_num; ii++) /// tyle ile rzeczywiÂœcie jest czÂ¹stek
 	{
 		dump_file << "\t" << bead_data[ii].position.x;
 		dump_file << "\t" << bead_data[ii].position.y;
@@ -1589,7 +1589,7 @@ bool SimulationManager::DumpData()
 
 bool SimulationManager::SetSimulationGrid()
 {
-	//ustalanie iloœci komórek w siatce na podstawie max promienia cz¹steczki
+	//ustalanie iloÂœci komÃ³rek w siatce na podstawie max promienia czÂ¹steczki
 
 	if (settings.size.x <= 0.0f || settings.size.y <= 0.0f || settings.size.z <= 0.0f)
 	{
@@ -1631,19 +1631,19 @@ bool SimulationManager::SetSimulationGrid()
 	settings.half_size_squared = std::min<float>(std::min<float>(settings.size.x, settings.size.y), settings.size.z)*0.5f;
 	settings.half_size_squared *= settings.half_size_squared;
 
-	//wielkoœæ siatki
+	//wielkoÂœÃ¦ siatki
 	int grid_size = settings.x_cells_num * settings.y_cells_num * settings.z_cells_num;
 
 	grid_cell_nhood.resize(grid_size);
 
-	//ustalanie adresów komórek s¹siaduj¹cych 
+	//ustalanie adresÃ³w komÃ³rek sÂ¹siadujÂ¹cych 
 	for (int zz = 0; zz < settings.z_cells_num; zz++)
 	{
 		for (int yy = 0; yy < settings.y_cells_num; yy++)
 		{
 			for (int xx = 0; xx < settings.x_cells_num; xx++)
 			{
-				int targetCell = xx + yy * settings.y_cells_num + zz * settings.x_cells_num * settings.y_cells_num;
+				int targetCell = xx + yy * settings.x_cells_num + zz * settings.x_cells_num * settings.y_cells_num;
 				int cnt = 0;
 				for (int dx = -1; dx < 2; dx++)
 				{
@@ -1662,7 +1662,7 @@ bool SimulationManager::SetSimulationGrid()
 						if (nz < 0) nz = settings.z_cells_num - 1;
 						if (nz >= settings.z_cells_num) nz = 0;
 
-						int nh = nx + ny * settings.y_cells_num + nz * settings.x_cells_num * settings.y_cells_num;
+						int nh = nx + ny * settings.x_cells_num + nz * settings.x_cells_num * settings.y_cells_num;
 						grid_cell_nhood[targetCell].n[cnt] = nh;
 						cnt++;
 					}
@@ -1683,7 +1683,7 @@ bool SimulationManager::SetSimulationGrid()
 					if (nz < 0) nz = settings.z_cells_num - 1;
 					if (nz >= settings.z_cells_num) nz = 0;
 
-					int nh = nx + ny * settings.y_cells_num + nz * settings.x_cells_num * settings.y_cells_num;
+					int nh = nx + ny * settings.x_cells_num + nz * settings.x_cells_num * settings.y_cells_num;
 					grid_cell_nhood[targetCell].n[cnt] = nh;
 					cnt++;
 				}
@@ -1701,7 +1701,7 @@ bool SimulationManager::SetSimulationGrid()
 				if (nz < 0) nz = settings.z_cells_num - 1;
 				if (nz >= settings.z_cells_num) nz = 0;
 
-				int nh = nx + ny * settings.y_cells_num + nz * settings.x_cells_num * settings.y_cells_num;
+				int nh = nx + ny * settings.x_cells_num + nz * settings.x_cells_num * settings.y_cells_num;
 				grid_cell_nhood[targetCell].n[cnt] = nh;
 				cnt++;
 			}
