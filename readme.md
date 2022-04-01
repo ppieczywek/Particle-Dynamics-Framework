@@ -89,7 +89,7 @@ arguments:
   [model_file_path] - path to model file
 
 example:
-  model_file   WATER_BOX.txt
+  model   WATER_BOX.txt
 ```
 </br>
 
