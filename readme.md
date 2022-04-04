@@ -399,3 +399,7 @@ FRAME	50000	0.0001	152	60	232
 	C1	19.9048	34.891	182.297	19.9048	34.891	182.297	 0.0002	-0.015	-0.067	 0.082	-0.032	-0.119
   ....
 ```
+
+### 4. Running the code
+
+The compiled binary executable file should be placed in one folder with "kernel.cl" and "input.txt" files. Once it is executed it read the "kernel.cl" file which stores OpenCl procedures. Then, software reads input file for simulation parameters and model file. Model file should be placed in the same directory. After the files have been read correctly, the program starts calculations.
